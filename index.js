@@ -1,17 +1,27 @@
 const http = require("http");
+const express = require("express");
+const bodyParser = require("body-parser");
+const logs = require("morgan");
+const routes = require("./routes");
 
 const PORT = process.env.PORT || 3200;
 
-const SERVER = http.createServer();
+const app = express();
 
-SERVER.listen(PORT);
+// Define json body reader
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-SERVER.on("listening", () => {
-  console.log("[Server]::LISTEN:%s", PORT);
+// add routes
+app.use("/api", routes);
+
+// add loggers
+app.use(logs("dev"));
+
+app.listen(PORT, err => {
+  if (err) {
+    console.log("[SERVER]::ERROR:%s", err.message);
+  } else {
+    console.log("[SERVER]::LISTEN:%s", PORT);
+  }
 });
-
-SERVER.on("ERROR", error => {
-  throw new Error("[Server]::ERROR:%s", err.message);
-});
-
-
