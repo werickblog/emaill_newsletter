@@ -1,0 +1,16 @@
+{
+  "name": "emaill_newsletter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/werickblog/emaill_newsletter.git",
+  "author": "tesh254 <ewachira254@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^5.0.2"
+  },
+  "scripts": {
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"yarn server\" \"yarn client\""
+  }
+}
