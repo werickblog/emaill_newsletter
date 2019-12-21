@@ -59,7 +59,10 @@ export const createNewsletter = data => async dispatch => {
 
   axios
     .post(`${API}/create`, data)
-    .then(res => dispatch({ type: CREATE_NEWLETTER, payload: res.data }))
+    .then(res => {
+        dispatch({ type: CREATE_NEWLETTER, payload: res.data })
+        window.href="/"
+    })
     .catch(err => {
       dispatch({ type: ERROR });
       toast.error(err.response.data.message);

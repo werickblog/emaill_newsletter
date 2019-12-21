@@ -18,6 +18,9 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "morgan": "^1.9.1",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "quill-image-drop-module": "^1.0.3",
+    "quill-image-resize-module": "^3.0.0",
+    "quill-image-resize-module-react": "^3.0.0"
   }
 }
